@@ -42,6 +42,17 @@ const createTimer = (callback) => {
 
 // Counter Logic
 const counter = createTimer((amount) => amount + 1)
+/**
+ * присвоив значение counter = createTimer (мы передаем в таймер (callback), а сам наш
+ * callback является функцией, который принимает значение amount и возвращает amount + 1)
+ * то есть callback в функции createTimer - вообще во всей функции где написано callback,
+ * он принимает вот такие значения, 
+ * Вот тебе функция со значением amount а ты в свою очередь должен мне вернуть amount + 1
+ * Еще раз для закрепления материала ____
+ * createTimer(callback - то есть принимает значение)
+ * в нашем случае мы передаем вот такое значение ((amount) => amount +1)
+ * то есть передаем функцию которая в свою очередь принимает значение amount и возвращает amount + 1;
+ */
 
 // -- Listeners
 elements.counter.start.addEventListener('click', () => counter.start(1000))
