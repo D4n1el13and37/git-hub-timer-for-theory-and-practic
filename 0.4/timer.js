@@ -13,7 +13,7 @@ const elements = {
   },
 }
 /*
-ff
+Как на счет того что бы сделать 2 разных переменные и просто вести учет времени практики и вреемени затраченного на теорию ?
 */
 /**
  * Можно переписать функцию createTimer с использованием this вместо замыканий.
@@ -44,7 +44,14 @@ ff
  *
  * 1. onStop - для обработки окончания работы таймер
  *    counter.onStop()
- *
+ * 
+ */
+
+/**
+ * время необходимо потратить на практику будет всегда отображаться когда ты в разделе практики?
+ * или оно всегда отображается даже когда ты не в практике
+ * Время практики и время теории всегда сохраняется и остается такой какой было (то есть 
+ * нужно создать локал сторэдж) 
  */
 
 // Abstraction
@@ -73,6 +80,7 @@ const createTimer = (callback) => {
   const stop = () => {
     pause()
     setAmount(() => 0)
+    elements.counter.output.innerText = amount;
   }
 
   const onTick = (callback) => listeners.push(callback)
@@ -95,7 +103,13 @@ counter.onTick((amount) => {
   elements.counter.output.innerText = amount
 })
 
-counter.onTick(console.log)
+counter.onTick(console.log);
+
+/*
+counter.onStop((amount) => {
+  amount = 0;
+})
+*/
 // Example of onStop
 // В onStop нужно сделать назначение нужного amount для countdown (countdown.setAmount( ... ))
 // counter.onStop(console.log)
