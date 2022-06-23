@@ -5,30 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <script src="timer.js" defer></script>
+    <script src="second.js" defer></script>
 
     <title>Timer</title>
   </head>
 
   <body>
-    <div>
-      <h2>Counter</h2>
+    <h1>Timer</h1>
 
-      <p>Count: <output id="counter-output">0</output></p>
+    <!--<div class="left-side">-->
 
-      <button id="counter-button-start">Start</button>
-      <button id="counter-button-pause">Pause</button>
-      <button id="counter-button-stop">Stop</button>
+    <p class="theoryTime">
+      your theory time: <output id="theory-time-output">0</output>
+    </p>
+
+    <p>Here it is : <output id="timer-output">0</output></p>
+
+    <p class="practicTime">
+      your practic time: <output id="practic-time-output">0</output>
+    </p>
+
+    <button id="timer-button-start">Start</button>
+    <button id="timer-button-pause">Pause</button>
+
+    <p style="display: inline">
+      End and <button id="button-practic">Go practic</button>
+    </p>
+    <!--output preference-->
+    <!--
+      <div class="time">
+      <div id="hours">00</div>
+      <div id="minutes">00</div>
+      <div id="seconds">00</div>
     </div>
-
-    <div>
-      <h2>Countdown</h2>
-
-      <p>Count: <output id="countdown-output">0</output></p>
-
-      <button id="countdown-button-start">Start</button>
-      <button id="countdown-button-pause">Pause</button>
-      <button id="countdown-button-stop">Stop</button>
-    </div>
-  </body>
+  --></body>
 </html>
