@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <script src="second.js" defer></script>
+    <link rel="stylesheet" href="2.0CSSVersion.css" />
+    <title>Timer</title>
+  </head>
+
+  <body>
+    <div class="container flex">
+      <header class="flex">
+        <button class="button header-button">Language - EN</button>
+        <button class="button header-button" id="theme">Theme</button>
+      </header>
+      <main class="main">
+        <div class="statistic flex">
+          <div class="blocks">
+            <span class="theory-time output">
+              Theory: <br />
+              <output id="theory-time-output">00:00:00</output>
+            </span>
+
+            <span class="practic-time output">
+              Practice: <br />
+              <output id="practic-time-output">00:00:00</output>
+            </span>
+          </div>
+          <output id="timer-output">00:00:00</output>
+        </div>
+        <div class="statistic-controls flex">
+          <button class="button statistic-button" id="timer-button-start">
+            START
+          </button>
+          <button class="button statistic-button" id="timer-button-pause">
+            PAUSE
+          </button>
+        </div>
+        <div class="session-controls flex">
+          <button class="button session-button" id="button-practic">
+            GO to Practice
+          </button>
+          <button class="button session-button" id="close-sission">
+            close session
+          </button>
+        </div>
+      </main>
+      <footer class="contacts flex">
+        <p class="contacts">Contact me via telegram <a href="#">@account</a></p>
+      </footer>
+    </div>
+  </body>
+</html>
