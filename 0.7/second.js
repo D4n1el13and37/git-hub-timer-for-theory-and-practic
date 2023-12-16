@@ -64,7 +64,6 @@ const setTheme = (obj, properties) => {
   }
 };
 
-
 //для получения применения темы при загрузке страницы
 const getTheme = () => localStorage.getItem("application-theme");
 
@@ -104,22 +103,25 @@ const timer = {
   },
 };
 
+//get time from localStorage
 const getPracticeTime = () => localStorage.getItem("Practice time");
 const getTheoryTime = () => localStorage.getItem("Theory time");
 const getMainTime = () => localStorage.getItem("Main time");
 
-// const setMode = () => 
+// const setMode = () =>
 
 const getMode = () => localStorage.getItem("Mode");
 /**
- * Необходимо добавить в локал сторедж 
- * какой мод стоял у пользователя theory/practice; 
+ * Необходимо добавить в локал сторедж
+ * какой мод стоял у пользователя theory/practice;
  */
 
 //хз откуда это я придумал с иф стэйтментом но это работает(пока что), и ладно:)
-if (JSON.parse(localStorage.getItem("Main time")) 
-|| JSON.parse(localStorage.getItem("Theory time"))
-|| JSON.parse(localStorage.getItem("Practice time"))) {
+if (
+  JSON.parse(localStorage.getItem("Main time")) ||
+  JSON.parse(localStorage.getItem("Theory time")) ||
+  JSON.parse(localStorage.getItem("Practice time"))
+) {
   //присваиваем значение theory и practice из localStorage.
   timer.theoryTime = +getTheoryTime();
   timer.practicTime = +getPracticeTime();
@@ -138,28 +140,20 @@ const handleTimerStart = (event) => {
     ++amount;
 
     elements.timer.output.innerText = timeOutput(amount);
-    /*не совсем корректно будет сохрянятся в локалку 
-    так как если мы уъодим с сайта он же перестает считать)
-    Надо чекнуть как это будет работать
-    */
     localStorage.setItem("Main time", amount);
   }, 1000);
 
   elements.timer.pause.disabled = false;
-
   elements.timer.start.disabled = true;
-
   elements.changeMode.disabled = true;
 };
 
 const handleTimerPause = (event) => {
   timer.pause();
 
-  elements.timer.start.disabled = false;
-
-  elements.changeMode.disabled = false;
-
   elements.timer.pause.disabled = true;
+  elements.timer.start.disabled = false;
+  elements.changeMode.disabled = false;
 
   elements.timer.output.innerText = timeOutput(timer.amount);
 };
@@ -169,9 +163,7 @@ const handleChangeMode = (event) => {
   switch (general.mode) {
     case Mode.Theory:
       general.mode = Mode.Practice;
-
       elements.changeMode.innerText = "GO to THEORY";
-
       timer.theoryTime += timer.amount;
 
       localStorage.setItem("Theory time", timer.theoryTime);
@@ -180,9 +172,7 @@ const handleChangeMode = (event) => {
       break;
     case Mode.Practice:
       general.mode = Mode.Theory;
-
       elements.changeMode.innerText = "GO to PRACTICE";
-
       timer.practicTime += timer.amount;
 
       localStorage.setItem("Practice time", timer.practicTime);
@@ -193,7 +183,6 @@ const handleChangeMode = (event) => {
       break;
   }
   timer.stop();
-
   elements.timer.start.disabled = false;
 
   localStorage.removeItem("Main time");
@@ -203,7 +192,6 @@ const handleChangeMode = (event) => {
 
 const handleChangeTheme = (event) => {
   const nextTheme = general.theme === "dark" ? "light" : "dark";
-
   general.theme = nextTheme;
 
   localStorage.setItem("application-theme", nextTheme);
@@ -213,9 +201,6 @@ const handleChangeTheme = (event) => {
 
 /*слушатели*/
 elements.timer.start.addEventListener("click", handleTimerStart);
-
 elements.timer.pause.addEventListener("click", handleTimerPause);
-
 elements.changeMode.addEventListener("click", handleChangeMode);
-
 elements.changeTheme.addEventListener("click", handleChangeTheme);

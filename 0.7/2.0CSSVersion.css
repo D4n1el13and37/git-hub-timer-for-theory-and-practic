@@ -14,9 +14,8 @@ so... we try to make root selector :)
   --background: #181818;
   --white: #fff;
   --yellow: #ffd600;
-  --red: #B40000;
+  --red: #b40000;
 }
-
 
 /* нужно проработать root 
 погуглить 
@@ -96,6 +95,13 @@ header {
 }
 
 /* Statistics controls */
+.controls__bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 12px;
+}
+
 .statistic-controls {
   justify-content: center;
   gap: 12px;
@@ -105,15 +111,29 @@ header {
 .statistic-button {
   background-color: var(--red);
   color: var(--white);
+  transition: all 0.3s ease-in-out;
 }
 
-/* session controls */
-.session-controls {
-  padding-left: 88px;
+.session-button {
+  transition: all 0.3s ease-in-out;
 }
 
-.session-button:not(:last-child) {
-  margin-right: 12px;
+.statistic-button:disabled:hover {
+  background-color: var(--red);
+  color: var(--white);
+  scale: 1;
+}
+
+.session-button:hover {
+  color: var(--red);
+  scale: 1.05;
+  outline: 1px solid var(--red);
+}
+
+.statistic-button:hover {
+  scale: 1.05;
+  background-color: var(--white);
+  color: var(--background);
 }
 
 /* footer */
@@ -126,5 +146,5 @@ header {
 
 .contacts a {
   padding-left: 4px;
-  color:var(--red);
+  color: var(--red);
 }
